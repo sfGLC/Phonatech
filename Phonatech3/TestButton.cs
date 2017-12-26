@@ -37,6 +37,12 @@ namespace Phonatech3
             IPoint pPoint = pMxdoc.ActivatedView.ScreenDisplay.DisplayTransformation.ToMapPoint(x, y);
 
             TowerManager tm = new TowerManager(pDS.Workspace);
+
+            DeviceManager dm = new DeviceManager(pDS.Workspace);
+            dm.AddDevice("D01", pPoint);
+
+
+
             Tower tower = tm.GetNearestTower(pPoint);
 
             if (tower == null)
@@ -44,6 +50,8 @@ namespace Phonatech3
                 MessageBox.Show("No towers were found within the area.");
                 return;
             }
+
+            pMxdoc.ActivatedView.Refresh();
 
             MessageBox.Show("Tower ID: " + tower.ID + Environment.NewLine + "Type: " + tower.towerType + Environment.NewLine + "NetworkBand: " + tower.networkBand);
 

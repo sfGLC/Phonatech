@@ -6,13 +6,8 @@ using System.Threading.Tasks;
 
 namespace Phonatech3
 {
-    public class Towers
+    public class Phone
     {
-        public Towers()
-        {
-            Items = new List<Tower>();
-        }
 
-        public List<Tower> Items { get; set; }
     }
 }
